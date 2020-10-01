@@ -5,7 +5,7 @@ public class OrderException extends Exception {
     public OrderException() {
     }
 
-    public OrderException(String message){
+    public OrderException(String message) {
         super(message);
     }
 }

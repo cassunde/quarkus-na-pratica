@@ -1,9 +1,11 @@
-package com.cassunde.order.exception;
+package com.cassunde.order.model.vo;
 
-public class ErrorDefault {
+import java.io.Serializable;
 
-    public String message;
-    public String code;
+public class ErrorDefault implements Serializable {
+
+    private String message;
+    private String code;
 
     public ErrorDefault(String message, String code) {
         this.message = message;

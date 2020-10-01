@@ -1,4 +1,4 @@
-package com.cassunde.order.model.entity;
+package com.cassunde.order.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import io.quarkus.mongodb.panache.PanacheMongoEntity;
@@ -11,7 +11,7 @@ public class Order extends PanacheMongoEntity {
     private String client;
     private String product;
     private BigDecimal amount;
-    private Boolean pending;
+
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private LocalDate dateCreation;
 
@@ -21,14 +21,6 @@ public class Order extends PanacheMongoEntity {
 
     public void setClient(String client) {
         this.client = client;
-    }
-
-    public LocalDate getDateCreation() {
-        return dateCreation;
-    }
-
-    public void setDateCreation(LocalDate dateCreation) {
-        this.dateCreation = dateCreation;
     }
 
     public String getProduct() {
@@ -47,11 +39,21 @@ public class Order extends PanacheMongoEntity {
         this.amount = amount;
     }
 
-    public Boolean getPending() {
-        return pending;
+    public LocalDate getDateCreation() {
+        return dateCreation;
     }
 
-    public void setPending(Boolean pending) {
-        this.pending = pending;
+    public void setDateCreation(LocalDate dateCreation) {
+        this.dateCreation = dateCreation;
+    }
+
+    @Override
+    public String toString() {
+        return "Order{" +
+                "client='" + client + '\'' +
+                ", product='" + product + '\'' +
+                ", amount=" + amount +
+                ", dateCreation=" + dateCreation +
+                '}';
     }
 }
